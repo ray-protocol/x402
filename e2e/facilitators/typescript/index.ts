@@ -49,6 +49,7 @@ import {
   createHederaClient,
   createHederaPreflightTransfer,
   createHederaSignAndSubmitTransaction,
+  createHederaVerifyPayerSignature,
   toFacilitatorHederaSigner,
 } from "@x402/hedera";
 import { ExactHederaScheme } from "@x402/hedera/exact/facilitator";
@@ -235,7 +236,8 @@ if (process.env.HEDERA_ACCOUNT_ID && process.env.HEDERA_PRIVATE_KEY) {
       buildHederaClient,
       hederaKey,
     ),
-    preflightTransfer: createHederaPreflightTransfer(buildHederaClient),
+    verifyPayerSignature: createHederaVerifyPayerSignature(),
+    preflightTransfer: createHederaPreflightTransfer(),
   });
   console.info(`Hedera Facilitator account: ${hederaAccountId}`);
 }
